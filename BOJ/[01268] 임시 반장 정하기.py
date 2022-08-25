@@ -1,31 +1,23 @@
 # 문제 : https://www.acmicpc.net/problem/1268
 
 students = []
-class_cnt = [0] * 10
 n = int(input())
-student_cnt = [] 
+class_cnt = [0] * 10
+
+for _ in range(n) :
+    students.append(list(map(int,input().split(" "))))
+
+student_cnt = []
+
 for i in range(n) :
     student_cnt.append([0] * n)
 
-for _ in range(n) :
-    students.append(input().split(" "))
-    
-for j in range(5) :
-    array = [] 
-    for k in range(n) :
-        array.append(int(students[k][j]))
-        class_cnt[int(students[k][j])] += 1
-    for m in range(1,9):
-        array_ = []
-        if class_cnt[m] >= 2:
-            for p in range(n) :
-                if array[p] == m :
-                    array_.append(p)
-            for q in range(len(array_)):
-                for r in range(len(array_)):
-                    student_cnt[array_[q]][array_[r]] += 1
-                student_cnt[array_[q]][array_[q]] -= 1
-    class_cnt = [0] * 10
+for i in range(5):
+    for j in range(n):
+        for k in range(n):
+            if j != k :
+                if students[j][i] == students[k][i]:
+                    student_cnt[j][k] += 1
 
 count_array = []
 for u in range(n):
