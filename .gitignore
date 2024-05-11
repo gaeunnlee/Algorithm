@@ -14,3 +14,8 @@ practice.py
 04-02. 시각.py
 
 04-03. 왕실의 나이트 해답 #1.py
+
+BOJ/input.txt
+node_modules
+package-lock.json
+package.json
